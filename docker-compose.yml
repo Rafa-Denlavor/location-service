@@ -1,0 +1,23 @@
+version: '2.2'
+
+services:
+  pg:
+    image: bitnami/postgresql:13.16.0
+    ports:
+      - '5430:5432'
+    environment:
+      - POSTGRES_USER=rafaella.lopes
+      - POSTGRES_PASSWORD=Cardapio!
+      - POSTGRES_DB=saudealimentos
+
+  app:
+    build: .
+    ports:
+      - "8081:8080"
+    depends_on:
+      - pg
+    environment:
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://pg:5430/saudealimentos
+      - SPRING_DATASOURCE_USERNAME=rafaella.lopes
+      - SPRING_DATASOURCE_PASSWORD=Cardapio!
