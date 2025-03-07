@@ -1,10 +1,10 @@
-package restaurante.saudealimentos.cardapio;
+package com.denlavor.cep;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CardapioApplicationTests {
+class CepApplicationTests {
 
 	@Test
 	void contextLoads() {
