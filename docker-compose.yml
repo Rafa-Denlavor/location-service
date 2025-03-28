@@ -10,6 +10,7 @@ services:
       - POSTGRES_PASSWORD=Cardapio!
       - POSTGRES_DB=saudealimentos
 
+<<<<<<< Updated upstream
   app:
     build: .
     ports:
@@ -21,3 +22,29 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://pg:5430/saudealimentos
       - SPRING_DATASOURCE_USERNAME=rafaella.lopes
       - SPRING_DATASOURCE_PASSWORD=Cardapio!
+=======
+  redis:
+      image: redis
+      ports:
+        - 6380:6379
+
+  rabbitmq:
+    image: rabbitmq:3.7.8-management
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+
+
+    #  app:
+    #    build: .
+    #    ports:
+    #      - "8080:8080"
+    #    depends_on:
+    #      - pg
+
+volumes:
+  pgdata:
+>>>>>>> Stashed changes
